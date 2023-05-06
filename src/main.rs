@@ -1,6 +1,8 @@
 use std::{env, process::exit};
 use std::fs;
-use angelhack_may_2023::*;
+use crate::q1::q1;
+
+pub mod q1;
 
 fn main() {
     let args: Vec<String> = env::args().collect();

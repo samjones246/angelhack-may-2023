@@ -1,7 +1,5 @@
 use std::io::Error;
 
-pub const QUESTIONS_IMPLEMENTED: i32 = 1;
-
 pub fn q1(input: &str) -> Result<i32, Error> {
     let (up, down) = count_directions(&input);
     return Ok(up - down);
