@@ -20,7 +20,7 @@ fn main() {
     let result = match q {
         1 => {
             match fs::read_to_string("res/q1_input.txt") {
-                Ok(inp) => q1(&inp),
+                Ok(inp) => Ok(q1(&inp)),
                 Err(e) => Err(e)
             }
         },
