@@ -2,9 +2,11 @@ use std::{env, process::exit};
 use std::fs;
 use crate::q1::q1;
 use crate::q2::q2;
+use crate::q3::q3;
 
 pub mod q1;
 pub mod q2;
+pub mod q3;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -34,7 +36,8 @@ fn main() {
                 },
                 Err(e) => Err(e.to_string())
             }
-        }
+        },
+        3 => Ok(q3(1867)),
         _ => { 
             println!("Question not yet implemented");
             exit(1);
