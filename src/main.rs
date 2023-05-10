@@ -3,10 +3,12 @@ use std::fs;
 use crate::q1::q1;
 use crate::q2::q2;
 use crate::q3::q3;
+use crate::q4::q4;
 
-pub mod q1;
-pub mod q2;
-pub mod q3;
+mod q1;
+mod q2;
+mod q3;
+mod q4;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -38,6 +40,15 @@ fn main() {
             }
         },
         3 => Ok(q3(1867)),
+        4 => {
+            match fs::read_to_string("res/q4_input.txt") {
+                Ok(inp) => match q4(&inp) {
+                    Ok(x) => Ok(x),
+                    Err(e) => Err(e)
+                },
+                Err(e) => Err(e.to_string())
+            }
+        }
         _ => { 
             println!("Question not yet implemented");
             exit(1);
