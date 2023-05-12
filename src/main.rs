@@ -4,11 +4,13 @@ use crate::q1::q1;
 use crate::q2::q2;
 use crate::q3::q3;
 use crate::q4::q4;
+use crate::q5::q5;
 
 mod q1;
 mod q2;
 mod q3;
 mod q4;
+mod q5;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -26,26 +28,32 @@ fn main() {
     let result = match q {
         1 => {
             match fs::read_to_string("res/q1_input.txt") {
-                Ok(inp) => Ok(q1(&inp)),
+                Ok(inp) => Ok(q1(&inp).to_string()),
                 Err(e) => Err(e.to_string())
             }
         },
         2 => {
             match fs::read_to_string("res/q2_input.txt") {
                 Ok(inp) => match q2(&inp, 1234) {
-                    Ok(x) => Ok(x),
+                    Ok(x) => Ok(x.to_string()),
                     Err(e) => Err(e)
                 },
                 Err(e) => Err(e.to_string())
             }
         },
-        3 => Ok(q3(1867)),
+        3 => Ok(q3(1867).to_string()),
         4 => {
             match fs::read_to_string("res/q4_input.txt") {
                 Ok(inp) => match q4(&inp) {
-                    Ok(x) => Ok(x),
+                    Ok(x) => Ok(x.to_string()),
                     Err(e) => Err(e)
                 },
+                Err(e) => Err(e.to_string())
+            }
+        }
+        5 => {
+            match fs::read_to_string("res/q5_input.txt") {
+                Ok(inp) => Ok(q5(&inp)),
                 Err(e) => Err(e.to_string())
             }
         }
